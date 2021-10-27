@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
 {% extends 'app/base.html' %} {% load static %} {% block title %}Home{% endblock title %} {% block banner_slider %}
 <!--Banner Slider-->
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
