@@ -1,86 +1,74 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-{% extends 'app/base.html' %} {% load static %} {% block title %}Home{% endblock title %} {% block banner_slider %}
-<!--Banner Slider-->
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
+<html lang="en">
+<head>
+  <title>Home Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  .fakeimg {
+    
+    background: #aaa;
+  }
+  #store
+{
+    overflow:hidden;
+}
 
-            <img src="{% static 'app/images/banner/b1.png' %}" class="d-block w-40 bg-dark bg-gradient" alt="...">
-        </div>
-        <!--   <div class="carousel-item">
-            <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="...">
-        </div> -->
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">clothes store</a>
     </div>
-    <!--  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </a> -->
-</div>
-<!-- End Banner Slider -->
-{% endblock banner_slider %} {% block livesale %}
-<!-- Live Sale Section -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Male</a></li>
+        <li><a href="#">Female</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <div class="container">
-    <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
-        <h1>SALE IS LIVE NOW</h1>
-        <!-- <span>5% Instant Discount on Axis Bank Credit and Debit Card</span> -->
-        <small class="fw-lighter">Term and Condition Applied </small>
+  <div class="row">
+    <div class="col-sm-4">
+      <h2>Clothes store</h2>
+      <div class="fakeimg" id="store"><img src="cloths store.jfif" alt="Not found"></div>
+      <br>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Male</a></li>
+        <li><a href="#">Female</a></li>
+        
+      </ul>
+      <hr class="hidden-sm hidden-md hidden-lg">
     </div>
-</div>
-<!-- End Live Sale Section -->
-{% endblock livesale %} {% block main-content %}
-<!-- 1st Product Slider -->
-<div class="m-3">
-    <h2>SHOP24's Bottom Wear</h2>
-    <!-- Slider 1 -->
-    <div class="owl-carousel" id="slider1">
-        {% for b in bottomwears %}
-        <a href="{% url 'product-detail' b.id %}" class="btn">
-            <div class="item"><img src="{{b.product_image.url}}" alt="" height="300px"><span class="fw-bold">{{b.title}}</span><br><span class="fs-5">Rs. {{b.discounted_price}}</span></div>
-        </a>
-        {% endfor %}
+    <div class="col-sm-8">
+      <h2>Male clothes</h2>
+      <div class="fakeimg" id="malecloths"><img src="male cloths.jfif" alt="Not found"></div>
+      <br>
+      <br>
+      <h2>Female clothes</h2>
+      <div class="fakeimg"><img src="female cloths.jpg" alt="Not Found">
+      </div>
+     
     </div>
+  </div>
 </div>
-<!-- End 1st Product Slider -->
 
 
 
-<!-- 2nd Product Slider -->
-<div class="mx-3">
-    <h2>SHOP24's Top Wear</h2>
-    <!-- Slider 2 -->
-    <div class="owl-carousel" id="slider2">
-        {% for tp in topwears %}
-        <a href="{% url 'product-detail' tp.id %}" class="btn">
-            <div class="item"><img src="{{tp.product_image.url}}" alt="" height="300"><span class="fw-bold">{{tp.title}}</span><br><span class="fs-5">Rs. {{tp.discounted_price}}</span></div>
-        </a>
-        {% endfor %}
-    </div>
-</div>
-<!-- End 2nd Product Slider -->
-
-<!-- 3rd Product Slider -->
-<div class="mx-3">
-    <h2>SHOP24's Mobile</h2>
-    <!-- Slider 3 -->
-    <div class="owl-carousel" id="slider3">
-        {% for m in mobiles %}
-        <a href="{% url 'product-detail' m.id %}" class="btn">
-            <div class="item"><img src="{{m.product_image.url}}" alt="" height="300"><span class="fw-bold">{{m.title}}</span><br><span class="fs-5">Rs. {{m.discounted_price}}</span></div>
-        </a>
-        {% endfor %}
-    </div>
-</div>
-<!-- End 2nd Product Slider -->
-{% endblock main-content %}
+</body>
+</html>
